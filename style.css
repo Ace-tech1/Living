@@ -3925,7 +3925,7 @@ ul.nav-menu {
 .footer-container h2 {
     text-transform: capitalize;
     margin-bottom: 10px;
-    color: white; 
+    color: var(--background-color); 
     font-size: 16px;
     font-weight: 600;
 }
@@ -3957,6 +3957,11 @@ ul.nav-menu {
     display: block;
 }
 
+.phone_number{
+    text-decoration: none;
+    color: var(--background-color);
+}
+
 .footer-links li a:hover {
     color: var(--background-color);
     transition: 0.4s ease-in;
@@ -3964,6 +3969,8 @@ ul.nav-menu {
 
 .footer-contact-info p {
     padding: 5px 0px;
+    text-decoration: none;
+
 }
 
 
