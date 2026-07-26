@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./premium-theme.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script
         src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
     <title>Gallery</title>
-    <base href="/Living/">
+    <!-- <base href="/Living/"> -->
 </head>
 
 
@@ -67,27 +68,71 @@
     </section>
 
 
+    <!-- before / after slider — the "before and after" the copy above promises -->
+    <section class="before-after-section" data-aos="fade-up">
+        <div class="ba-image-wrap" id="baWrap">
+            <img src="./image/door.jpeg" class="ba-before" alt="Before renovation">
+            <div class="ba-after-wrap" id="baAfterWrap">
+                <img src="./image/door3.jpeg" class="ba-after" id="baAfterImg" alt="After renovation">
+            </div>
+            <span class="ba-tag ba-tag-before">Before</span>
+            <span class="ba-tag ba-tag-after">After</span>
+            <div class="ba-handle" id="baHandle"><span>&#8596;</span></div>
+        </div>
+        <p class="ba-caption">Drag the slider to compare before and after.</p>
+    </section>
+
 
     <!-- gallery section image -->
 
-
     <section id="gal" data-aos="fade-up">
+        <span class="gallery-section-label">doors</span>
         <div class="gii">
 
             <div class="large-image-wrapper">
-                <img class="gim" src="./image/door3.jpeg" alt="image">
+                <figure class="gallery-item gallery-large">
+                    <img src="./image/door3.jpeg" alt="Statement entry door">
+                    <figcaption>
+                        <span class="pi-category">Doors</span>
+                        <span class="pi-title">Statement Entry Door</span>
+                    </figcaption>
+                </figure>
             </div>
 
             <div class="right-grid-wrapper">
 
                 <div class="gi">
-                    <img class="gimm" src="./image/door.jpeg" alt="image">
-                    <img class="gim2" src="./image/door4.jpeg" alt="image">
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/door.jpeg" alt="Panel door design">
+                        <figcaption>
+                            <span class="pi-category">Doors</span>
+                            <span class="pi-title">Panel Door Design</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/door4.jpeg" alt="Sliding door detail">
+                        <figcaption>
+                            <span class="pi-category">Doors</span>
+                            <span class="pi-title">Sliding Door Detail</span>
+                        </figcaption>
+                    </figure>
                 </div>
 
                 <div class="gi">
-                    <img class="gimm" src="./image/door2.jpeg" alt="image">
-                    <img class="gim2" src="./image/door1.jpeg" alt="image">
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/door2.jpeg" alt="Interior door frame">
+                        <figcaption>
+                            <span class="pi-category">Doors</span>
+                            <span class="pi-title">Interior Door Frame</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/door1.jpeg" alt="Modern door hardware">
+                        <figcaption>
+                            <span class="pi-category">Doors</span>
+                            <span class="pi-title">Modern Door Hardware</span>
+                        </figcaption>
+                    </figure>
                 </div>
 
             </div>
@@ -97,36 +142,106 @@
 
 
     <section id="gal" data-aos="fade-up">
+        <span class="gallery-section-label">kitchen</span>
+        <div class="gallery-grid-uniform">
+
+            <figure class="gallery-item gallery-medium">
+                <img src="./image/WORK4.jpeg" alt="Open kitchen design">
+                <figcaption>
+                    <span class="pi-category">Kitchen</span>
+                    <span class="pi-title">Open Kitchen Design</span>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item gallery-medium">
+                <img src="./image/WORK6.jpeg" alt="Chef's kitchen">
+                <figcaption>
+                    <span class="pi-category">Kitchen</span>
+                    <span class="pi-title">Chef's Kitchen</span>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item gallery-medium">
+                <img src="./image/WORK5.jpeg" alt="Contemporary kitchen">
+                <figcaption>
+                    <span class="pi-category">Kitchen</span>
+                    <span class="pi-title">Contemporary Kitchen</span>
+                </figcaption>
+            </figure>
+
+        </div>
+    </section>
+
+
+
+    <section id="gal" data-aos="fade-up">
+        <span class="gallery-section-label">wardrobes</span>
         <div class="gii">
 
 
             <div class="right-grid-wrapper">
 
                 <div class="gi">
-                    <img class="gimm" src="./image/warddobe3.jpeg" alt="image">
-                    <img class="gim2" src="./image/warddobe2.jpeg" alt="image">
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/warddobe3.jpeg" alt="Built-in wardrobe">
+                        <figcaption>
+                            <span class="pi-category">Wardrobes</span>
+                            <span class="pi-title">Built-in Wardrobe</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/warddobe2.jpeg" alt="Walk-in closet">
+                        <figcaption>
+                            <span class="pi-category">Wardrobes</span>
+                            <span class="pi-title">Walk-in Closet</span>
+                        </figcaption>
+                    </figure>
                 </div>
 
                 <div class="gi">
-                    <img class="gimm" src="./image/warddobe1.jpeg" alt="image">
-                    <img class="gim2" src="./image/warddrobe4.jpg" alt="image">
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/warddobe1.jpeg" alt="Wardrobe shelving">
+                        <figcaption>
+                            <span class="pi-category">Wardrobes</span>
+                            <span class="pi-title">Custom Shelving</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="gallery-item gallery-small">
+                        <img src="./image/warddrobe4.jpg" alt="Wardrobe finish detail">
+                        <figcaption>
+                            <span class="pi-category">Wardrobes</span>
+                            <span class="pi-title">Finish Detail</span>
+                        </figcaption>
+                    </figure>
                 </div>
 
             </div>
             <div class="large-image-wrapper">
-                <img class="gim" src="./image/warddrobe.jpeg" alt="image">
+                <figure class="gallery-item gallery-large">
+                    <img src="./image/warddrobe.jpeg" alt="Full wardrobe suite">
+                    <figcaption>
+                        <span class="pi-category">Wardrobes</span>
+                        <span class="pi-title">Full Wardrobe Suite</span>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </section>
 
 
 
-<div style="text-align: center;">
+    <a class="galleryb js-fade-in" href="./videogallery.html">explore our video gallery</a>
 
-    <!-- <button class="galleryb"> explore our video gallery</button> -->
-</div>
 
-<a  class="galleryb js-fade-in" href="./videogallery.html">explore our video gallery</a>
+    <!-- lightbox (shared with portfolio page markup/behavior) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+        <img src="" alt="" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
 
     <footer>
@@ -214,6 +329,7 @@
                 </div>
                 
                 <button type="submit">Submit Review</button>
+                <p class="form-status" id="reviewFormStatus"></p>
             </form>
         </div>
     </div>
@@ -222,5 +338,3 @@
 </body>
 
 </html>
-
-

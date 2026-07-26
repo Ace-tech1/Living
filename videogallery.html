@@ -5,289 +5,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" type="image/png">
- <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./premium-theme.css">
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
 
-    <base href="/Living/">
     <title>Video Gallery</title>
+    <!-- <base href="/Living/"> -->
 </head>
 
 <body>
 
-    <body>
+    <!-- nav section  -->
+    <header>
+        <nav>
+
+            <!--brand logo  -->
+            <div class="logo">
+                <img src="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" alt="">
+            </div>
+            <button class="menu-toggle" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="hamburger-icon" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
+                </svg>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="./index.html" class="nav-link">Home</a></li>
+                <li><a href="./about.html" class="nav-link">About</a></li>
+                <li><a href="./services.html" class="nav-link">Services</a></li>
+                <li><a href="./portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="./gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="./contactus.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- hero section  -->
+    <section>
+        <div class="videogallery">
+            <h1><span class="gallery-style">video</span> gallery</h1>
+            <h2>Experience design in motion — <span class="gallery-style">creativity</span> brought to life.</h2>
+        </div>
+    </section>
 
 
+    <section>
+        <span class="gallery-text2">our gallery</span>
+        <h2 class="videogallery-header">See the journey from concept to completion.</h2>
+        <p class="videogallery-paragraph">See our designs in motion.</p>
+    </section>
 
-        <!-- nav section  -->
-        <header>
-            <nav>
 
-                <!--brand logo  -->
-                <div class="logo">
-                    <img src="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" alt="">
+    <!-- video gallery grid — click-to-play, only one video ever loads/plays at a time -->
+    <section class="video-gallery-section">
+        <div class="gallery-grid">
+
+            <div class="video-item" data-yt="vXgn9MQd0JI">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/vXgn9MQd0JI/hqdefault.jpg" alt="Living room walkthrough">
+                    <button class="video-play" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <span class="video-title">Living Room Walkthrough</span>
                 </div>
-                <button class="menu-toggle" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="hamburger-icon" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
-                    </svg>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="./index.html" class="nav-link">Home</a></li>
-                    <li><a href="" class="nav-link ">About</a></li>
+            </div>
+
+            <div class="video-item" data-yt="YYFVBIVtJMg">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/YYFVBIVtJMg/hqdefault.jpg" alt="Kitchen renovation">
+                    <button class="video-play" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <span class="video-title">Kitchen Renovation</span>
+                </div>
+            </div>
+
+            <div class="video-item" data-yt="x8bV03PzGJQ">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/x8bV03PzGJQ/hqdefault.jpg" alt="Full home tour">
+                    <button class="video-play" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <span class="video-title">Full Home Tour</span>
+                </div>
+            </div>
+
+            <div class="video-item" data-yt="oE8eTsjwDA0">
+                <div class="video-thumb">
+                    <img src="https://img.youtube.com/vi/oE8eTsjwDA0/hqdefault.jpg" alt="Staircase design">
+                    <button class="video-play" aria-label="Play video">
+                        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <span class="video-title">Staircase Design</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- footer section  -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <img src="./image/CRESTONE LOGO WHITE WORDMARK PNG.png" alt="CRESTONE Logo">
+                <p class="footer-description">
+                    From concept to completion, we manage the entire journey so you can enjoy the results without
+                    the
+                    stress.
+                </p>
+            </div>
+
+            <div class="footer-col footer-company-links">
+                <h2>our company</h2>
+                <ul class="footer-links">
+                    <li><a href="./about.html">About</a></li>
                     <li><a href="./services.html">Services</a></li>
                     <li><a href="./portfolio.html">Portfolio</a></li>
-                    <li><a href="./gallery.html" class="nav-link active">Gallery</a>
-                    </li>
-                    <li><a href="./contactUs.html" class="nav-link">Contact</a></li>
+                    <li><a href="./gallery.html">Gallery</a></li>
                 </ul>
-            </nav>
-        </header>
-        <!-- hero section  -->
-        <section>
-            <!-- background image  -->
-            <div class="videogallery">
-                <h1><span class="gallery-style">video</span> gallery</h1>
-                <h2>Experience design in motion — <span class="gallery-style">creativity</span> brought to life.</h2>
             </div>
 
-        </section>
-
-
-        <section>
-            <h1 class="gallery-text2">our gallery</h1>
-            <h2 class="videogallery-header">See the journey from concept to completion.</h2>
-            <p class="videogallery-paragraph">See Our Designs in Motion.</p>
-
-        </section>
-
-
-
-        <!-- video gallery section  -->
-
-
-        <section class="video-gallery-section">
-            <div class="gallery-grid">
-             
-
-                <div class="video-item">
-                    <iframe
-                        src="https://www.youtube.com/embed/vXgn9MQd0JI?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-
-
-
-                </div>
-
-
-                <div  class="video-item">
-                    <iframe src="https://www.youtube.com/embed/YYFVBIVtJMg?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1" title="kitchen renovation"
-                       
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-
-
-          <section class="video-gallery-section">
-            <div class="gallery-grid">
-              
-
-                <div class="video-item">
-                    <iframe
-                        src="https://www.youtube.com/embed/x8bV03PzGJQ?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-
-
-
-                </div>
-
-                <div  class="video-item">
-                    <iframe  src="https://www.youtube.com/embed/oE8eTsjwDA0?rel=0&modestbranding=1&autoplay=1&mute=1" title="Staircase"
-                   
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-
-            </div>
-        </section>
-
-
-
-     
-<!-- <section class="video-gallery-section">
-    <div class="gallery-grid">
-<div class="video-items">
-
-    <iframe width="348" height="619" src="https://www.youtube.com/embed/vXgn9MQd0JI" title="Mini Palor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<div class="video-items">
-
-    <iframe width="348" height="619" src="https://www.youtube.com/embed/vXgn9MQd0JI" title="Mini Palor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>     
-    </div>
-
-</section> -->
-<!-- 
-<section class="video-gallery-section">
-    <div class="gallery-grid">
-<div class="video-item">
-
-
-    <iframe width="348" height="619"    src="https://www.youtube.com/embed/x8bV03PzGJQ?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-
-
-</div>
-<div class="video-item">
-
-    <iframe width="348" height="619"  src="https://www.youtube.com/embed/YYFVBIVtJMg?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1" title="kitchen renovation"
-                       
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>     
-    </div>
-
-</section>
-
-
-<section class="video-gallery-section">
-    <div class="gallery-grid">
-<div class="video-item">
-
-       <iframe width="348" height="619"  src="https://www.youtube.com/embed/oE8eTsjwDA0?rel=0&modestbranding=1&autoplay=1&mute=1" title="Staircase"
-                   
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<div class="video-item">
-
-    <iframe width="348" height="619" src="https://www.youtube.com/embed/vXgn9MQd0JI?&modestbranding=1&showinfo=0&rel=0&autoplay=1&mute=1"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-
-</div>     
-    
-
-</section>
- -->
-
-
-        <!-- footer section  -->
-
-
-        <footer>
-            <div class="footer-container">
-
-                <div class="footer-brand">
-                    <img src="./image/CRESTONE LOGO WHITE WORDMARK PNG.png" alt="CRESTONE Logo">
-                    <p class="footer-description">
-                        From concept to completion, we manage the entire journey so you can enjoy the results without
-                        the
-                        stress.
-                    </p>
-                </div>
-
-                <div class="footer-col footer-company-links">
-                    <h2>our company</h2>
-                    <ul class="footer-links">
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./services.html">Services</a></li>
-                        <li><a href="./portfolio.html">Portfolio</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-services-main">
-                    <h2>services</h2>
-                    <ul class="footer-links">
-                        <li><a href="">Residential Design</a></li>
-                        <li><a href="">Renovatinng & remodeling</a></li>
-                        <li><a href="">Commercial interior design</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-services-sub">
-                    <ul class="footer-links">
-                        <li><a href="">2D/3D layout</a></li>
-                        <li><a href="">Art & accessories</a></li>
-                        <li><a href="">Furniture selection</a></li>
-                        <li><a href="">Outdoor & landscape design</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-contact-info">
-                    <h2>Contact info</h2>
-                    <p>Lekki, lagos nigeria</p>
-                    <p>+234 (0) 803 306 2186</p>
-                    <p>eg@crestoneliving.com</p>
-                </div>
-
-            </div>
-        </footer>
-
-        <div class="review-widget-container">
-
-            <div class="review-tab" id="reviewTab">
-                <span class="review-icon">★</span> <span class="review-text">Leave a Review</span>
+            <div class="footer-col footer-services-main">
+                <h2>services</h2>
+                <ul class="footer-links">
+                    <li><a href="">Residential Design</a></li>
+                    <li><a href="">Renovatinng & remodeling</a></li>
+                    <li><a href="">Commercial interior design</a></li>
+                </ul>
             </div>
 
-            <div class="review-form-popup" id="reviewFormPopup">
-                <h3>Share Your Experience</h3>
-
-                <form action="https://api.web3forms.com/submit" method="POST" id="reviewForm">
-                    <input type="hidden" name="access_key" value="d36401e5-388f-403e-be76-4897867fd837">
-
-                    <label for="rating">Service Rating:</label>
-
-                    <div class="star-rating">
-                        <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"
-                            title="5 stars">★</label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
-                            title="4 stars">★</label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
-                            title="3 stars">★</label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
-                            title="2 stars">★</label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
-                            title="1 star">★</label>
-                    </div>
-
-                    <label for="reviewText">Your Detailed Review:</label>
-                    <textarea id="reviewText" name="reviewText" rows="4"
-                        placeholder="Tell us about your project and how we did..." required></textarea>
-
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="John S." required>
-
-                    <div class="permission-checkbox">
-                        <input type="checkbox" id="permission" name="permission" value="yes">
-                        <label for="permission">Yes, you can feature my review on your website.</label>
-                    </div>
-
-                    <button type="submit">Submit Review</button>
-                </form>
+            <div class="footer-col footer-services-sub">
+                <ul class="footer-links">
+                    <li><a href="">2D/3D layout</a></li>
+                    <li><a href="">Art & accessories</a></li>
+                    <li><a href="">Furniture selection</a></li>
+                    <li><a href="">Outdoor & landscape design</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col footer-contact-info">
+                <h2>Contact info</h2>
+                <p>Lekki, lagos nigeria</p>
+                <p>+234 (0) 803 306 2186</p>
+                <p>eg@crestoneliving.com</p>
+            </div>
+
         </div>
-        <script src="./script.js"></script>
-    </body>
+    </footer>
+
+    <div class="review-widget-container">
+
+        <div class="review-tab" id="reviewTab">
+            <span class="review-icon">★</span> <span class="review-text">Leave a Review</span>
+        </div>
+
+        <div class="review-form-popup" id="reviewFormPopup">
+            <h3>Share Your Experience</h3>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="reviewForm">
+                <input type="hidden" name="access_key" value="d36401e5-388f-403e-be76-4897867fd837">
+
+                <label for="rating">Service Rating:</label>
+
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"
+                        title="5 stars">★</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
+                        title="4 stars">★</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
+                        title="3 stars">★</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
+                        title="2 stars">★</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
+                        title="1 star">★</label>
+                </div>
+
+                <label for="reviewText">Your Detailed Review:</label>
+                <textarea id="reviewText" name="reviewText" rows="4"
+                    placeholder="Tell us about your project and how we did..." required></textarea>
+
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="John S." required>
+
+                <div class="permission-checkbox">
+                    <input type="checkbox" id="permission" name="permission" value="yes">
+                    <label for="permission">Yes, you can feature my review on your website.</label>
+                </div>
+
+                <button type="submit">Submit Review</button>
+                <p class="form-status" id="reviewFormStatus"></p>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
 
 </html>

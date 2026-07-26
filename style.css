@@ -464,56 +464,54 @@ li a:hover {
 /* services section  */
 
 
-
-
 .services {
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start; /* Align top edge of left block with top cards */
     justify-content: center;
-    gap: 30px; 
-    padding: 60px 4%;
-    background: url(./image/services\ bg.png) no-repeat center center/cover;
-    flex-wrap: wrap; 
+    gap: 40px; 
+    padding: 80px 5%;
+    background: url('./image/services bg.png') no-repeat center center/cover;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 
+/* Left Intro Column */
 .services-left {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    align-self: center;
-    flex: 0 1 300px; 
-    padding-top: 20px; 
+    flex: 0 0 320px; /* Fixed basis so it doesn't stretch or crush */
+    padding-top: 10px;
 }
 
+/* Right Grid Wrapper */
 .services-grid-wrapper {
-    display: flex;
-    justify-content: center; 
-    gap: 20px;
-    flex-wrap: wrap; 
-    flex: 1 1 750px; 
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* Clean 2-column grid */
+    gap: 24px;
+    flex: 1 1 auto;
 }
 
 .services-text-col {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    flex: 0 1 370px; 
+    gap: 24px;
 }
 
-
-
+/* Typography Adjustments */
 .style-a {
     color: var(--secondary-color);
-    border: thin solid var(--primary-color);
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 800;
+    border: 1px solid var(--primary-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
     background-color: var(--background-color);
     display: inline-block;
-    margin-bottom: 5px; 
+    margin-bottom: 12px; 
 }
 
 .style-b {
@@ -522,37 +520,42 @@ li a:hover {
 
 .style-c {
     color: var(--text-color);
-   
 }
 
-.services-parapgraph{
- margin-bottom: 10px;
-    letter-spacing: 1px;
+.services-left h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 16px !important;
 }
 
-.services a {
-    padding: 13px 30px;
+.services-parapgraph {
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.services a.seb {
+    padding: 12px 28px;
     font-size: 14px;
     border: 1px solid var(--primary-color);
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: #ffffff;
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
     text-transform: capitalize;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
 }
 
-.services a:hover {
+.services a.seb:hover {
     background-color: transparent;
-    border: 1px solid var(--primary-color);
     color: var(--text-color);
-    transition: 0.5s ease-in-out;
 }
 
-
+/* Service Card Styles */
 .services-text,
 .services-text1,
 .services-text2,
@@ -560,86 +563,89 @@ li a:hover {
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     color: var(--text-color);
-    gap: 15px;
     border-radius: 20px;
-    
-    width: 370px; 
-    height: 350px; 
-    margin: 0;
+    height: 340px; 
+    width: 100%; /* Dynamic fill */
+    overflow: hidden; /* Clips dark background nicely to rounded corners */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-text:hover,
+.services-text1:hover,
+.services-text2:hover,
+.services-text3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 .services-text {
-    background: url(./image/residential.png) no-repeat center center/cover;
+    background: url('./image/residential.png') no-repeat center center/cover;
 }
 .services-text1 {
-    background: url(./image/3dplan.png) no-repeat center center/cover;
+    background: url('./image/3dplan.png') no-repeat center center/cover;
 }
 .services-text2 {
-    background: url(./image/art\ and\ accessories.png) no-repeat center center/cover;
+    background: url('./image/art and accessories.png') no-repeat center center/cover;
 }
 .services-text3 {
-    background: url(./image/furniture\ selection.png) no-repeat center center/cover;
+    background: url('./image/furniture selection.png') no-repeat center center/cover;
 }
 
+/* Dark Overlay Box inside cards */
 .sbg {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-bottom-left-radius: 15px; 
-    border-bottom-right-radius: 15px; 
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 0.85) 100%);
+    padding: 24px 20px 20px;
+    width: 100%;
 }
 
 .sbg h1 {
-    font-size: 22px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
     text-transform: capitalize;
-    color: var(--text-color);
+    color: #ffffff;
 }
 
 .sbg p {
     font-size: 13px;
-    letter-spacing: 1px;
+    line-height: 1.5;
     font-weight: 300;
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
 }
 
-@media (max-width: 1100px) {
+/* Responsive Breakdown */
+@media (max-width: 1024px) {
     .services {
-        padding: 40px 15px;
-        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 20px;
     }
 
     .services-left {
-        flex: 1 1 100%;
+        flex: 0 0 100%;
         align-items: center; 
-        padding-top: 0;
         text-align: center;
+        max-width: 600px;
+        margin-bottom: 20px;
     }
-    
+
     .services-grid-wrapper {
-        flex: 1 1 100%;
-        gap: 15px;
-    }
-
-    .services-text-col {
-        flex: 1 1 100%;
-        gap: 15px;
-    }
-
-    .services-text,
-    .services-text1,
-    .services-text2,
-    .services-text3 {
-        width: 100%; 
-        max-width: 100%;
-        height: 300px;
-        flex: 1 1 auto; 
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+@media (max-width: 640px) {
+    .services-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
 /* project section  */
 .project {
     display: flex;
@@ -1998,7 +2004,7 @@ text-decoration: none;
     text-transform: uppercase;
     margin: 0 auto;
     display: flex;
-    margin-top: 120px;
+    margin-top: 30px;
 
 }
 
@@ -2050,7 +2056,7 @@ text-decoration: none;
     text-transform: uppercase;
     margin: 0 auto;
     display: flex;
-    margin-top: 120px;
+    margin-top: 30px;
 
 }
 
@@ -2103,7 +2109,7 @@ text-decoration: none;
     text-transform: uppercase;
     margin: 0 auto;
     display: flex;
-    margin-top: 120px;
+    margin-top: 30px;
 
 }
 

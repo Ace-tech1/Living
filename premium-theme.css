@@ -1,0 +1,1251 @@
+/* ============================================================
+   CRESTONE LIVING — PREMIUM UPGRADE LAYER
+   Link this AFTER your existing style.css on every page:
+   <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="./premium-theme.css">
+   ============================================================
+   This file does NOT touch your colors or fonts — those stay
+   exactly as you built them. It only adds new motion: magnetic
+   buttons, a scroll progress bar, count-up stats, image tilt,
+   a custom cursor, and page transitions — layered on top of
+   your existing markup and classes.
+   ============================================================ */
+
+/* No font import, no color overrides here — your original
+   palette (sage #7E8C6B, black, white) and Work Sans stay exactly
+   as they were in style.css. This file only adds new components
+   and motion on top. */
+
+:root {
+    --gold: var(--primary-color);   /* reuse YOUR sage instead of a new accent */
+    --ease-signature: cubic-bezier(.16,1,.3,1);
+}
+
+/* ---------- Buttons: quieter, more tactile ---------- */
+.btn1, .btn2, .btn3, .btn4, .sbtn1, .sbtn2, .pbtn,
+.send-message-btn, .schedule-call-btn, .galleryb,
+.whoweare a, .services a, .project a, .testimonial a, .mission a {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.magnetic-active {
+    transition: transform 0.15s var(--ease-signature);
+}
+
+/* ---------- 4. Count-up stat numbers ---------- */
+.metric-number {
+    -webkit-text-stroke: 1.5px var(--text-color);
+    transition: -webkit-text-stroke 0.4s ease;
+}
+
+.expm:hover .metric-number {
+    -webkit-text-stroke: 1.5px var(--gold);
+}
+
+/* ---------- 5. Image tilt / zoom-follow on hover ----------
+   Applies to portfolio, gallery and project imagery. */
+.living img, .kit img, .outdoor-design img,
+.gim, .gimm, .gim2, .project img, .whoweare img,
+.getintoch img, .faq-image {
+    transition: transform 0.7s var(--ease-signature), filter 0.7s ease;
+    will-change: transform;
+}
+
+.living div:hover img,
+.kit div:hover img,
+.outdoor-design div:hover img,
+.project img:hover,
+.whoweare img:hover {
+    transform: scale(1.045);
+    filter: saturate(1.08);
+}
+
+.living div, .kit div, .outdoor-design div {
+    overflow: hidden;
+    border-radius: 19px;
+}
+
+/* ---------- 6. Scroll progress bar ---------- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold), var(--primary-color));
+    z-index: 3000;
+    transition: width 0.1s linear;
+}
+
+/* ---------- 7. Custom cursor (desktop only) ---------- */
+.cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2999;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+}
+
+.cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--gold);
+    transition: width 0.25s var(--ease-signature), height 0.25s var(--ease-signature),
+                opacity 0.3s ease, border-color 0.25s ease;
+}
+
+body.cursor-ready .cursor-dot,
+body.cursor-ready .cursor-ring {
+    opacity: 1;
+}
+
+.cursor-ring.cursor-grow {
+    width: 56px;
+    height: 56px;
+    border-color: var(--primary-color);
+}
+
+@media (hover: none), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ---------- 8. Preloader ---------- */
+#site-preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--secondary-color);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#site-preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader-mark {
+    width: 46px;
+    height: 46px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: preloader-spin 0.9s linear infinite;
+}
+
+@keyframes preloader-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- 9. Page transition wipe ---------- */
+#page-wipe {
+    position: fixed;
+    inset: 0;
+    background: var(--secondary-color);
+    z-index: 4000;
+    transform: translateY(101%);
+    transition: transform 0.55s var(--ease-signature);
+    pointer-events: none;
+}
+
+#page-wipe.active {
+    transform: translateY(0%);
+}
+
+/* ---------- 10. Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* ============================================================
+   PORTFOLIO PAGE UPGRADE — filter bar, uniform cards, lightbox
+   ============================================================ */
+
+/* ---------- Filter bar ---------- */
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 10px auto 40px;
+}
+
+.filter-btn {
+    padding: 11px 26px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* ---------- Uniform card grid ---------- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s var(--ease-signature);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.08);
+}
+
+.portfolio-item figcaption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.75) 100%);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio-item:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pi-category {
+    color: var(--active-color, #cfd9bf);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+
+.pi-title {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Category transition when filter changes */
+.portfolio-category {
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-category.pc-hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .portfolio-filter {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 9px 18px;
+        font-size: 12px;
+    }
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 8, 0.94);
+    z-index: 5000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.lightbox.active {
+    display: flex;
+    animation: lightboxFade 0.3s ease;
+}
+
+@keyframes lightboxFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox img {
+    max-width: min(90vw, 1100px);
+    max-height: 82vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: var(--primary-color);
+}
+
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
+@media (max-width: 560px) {
+    .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
+    .lightbox-close {
+        top: 14px;
+        right: 18px;
+        font-size: 28px;
+    }
+}
+
+/* ============================================================
+   PORTFOLIO — TOP-TIER PASS 2
+   ============================================================ */
+
+/* ---------- Featured project spotlight ---------- */
+.portfolio-spotlight {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.spotlight-media {
+    flex: 1.3;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+.spotlight-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s var(--ease-signature);
+}
+
+.portfolio-spotlight:hover .spotlight-media img {
+    transform: scale(1.05);
+}
+
+.spotlight-info {
+    flex: 1;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 50px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spotlight-info .pi-category {
+    color: var(--primary-color2, var(--primary-color));
+}
+
+.spotlight-info h2 {
+    font-size: 30px;
+    margin: 10px 0 16px;
+}
+
+.spotlight-info p {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+    margin-bottom: 26px;
+}
+
+.spotlight-view {
+    align-self: flex-start;
+    padding: 14px 32px;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.spotlight-view:hover {
+    background: transparent;
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+@media (max-width: 800px) {
+    .portfolio-spotlight {
+        flex-direction: column;
+        margin: 30px 15px 40px;
+    }
+    .spotlight-media { min-height: 280px; }
+    .spotlight-info { padding: 35px 25px; }
+}
+
+/* ---------- Sticky filter bar ---------- */
+.portfolio-filter {
+    position: sticky;
+    top: 78px;
+    z-index: 200;
+    background: rgba(248, 246, 239, 0.36);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    padding: 16px 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.portfolio-filter.pf-stuck {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Bento variety removed per feedback — back to uniform grid cards */
+
+/* ---------- Staggered reveal ---------- */
+.portfolio-item,
+.gallery-item,
+.team-card,
+.value-card {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.portfolio-item.card-in,
+.gallery-item.card-in,
+.team-card.card-in,
+.value-card.card-in {
+    animation: cardIn 0.7s var(--ease-signature) forwards;
+    animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+@keyframes cardIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Filter fade-out/in transition ---------- */
+.portfolio-category {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.portfolio-category.pc-fading {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ---------- Cursor "view" label on portfolio cards ---------- */
+.pi-follow-label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 3500;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 30px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pi-follow-label.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@media (hover: none), (pointer: coarse) {
+    .pi-follow-label { display: none; }
+}
+
+/* ---------- Lightbox counter ---------- */
+.lightbox-counter {
+    position: absolute;
+    top: 26px;
+    left: 32px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* ============================================================
+   GALLERY PAGE UPGRADE — before/after slider + card grid
+   ============================================================ */
+
+/* ---------- Before / after slider ---------- */
+.before-after-section {
+    max-width: 900px;
+    margin: 20px auto 70px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ba-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    cursor: ew-resize;
+    user-select: none;
+}
+
+.ba-before {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ba-after-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.ba-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+}
+
+.ba-tag {
+    position: absolute;
+    top: 16px;
+    padding: 6px 16px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+.ba-tag-before { left: 16px; }
+.ba-tag-after { right: 16px; }
+
+.ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    margin-left: -22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: ew-resize;
+    z-index: 10;
+}
+
+.ba-handle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #fff;
+    transform: translateX(-50%);
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.ba-handle span {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--secondary-color);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+.ba-caption {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #8a8a8a;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Gallery section labels ---------- */
+.gallery-section-label {
+    display: block;
+    text-align: center;
+    padding: 4px 14px;
+    border: thin solid var(--primary-color);
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto 25px;
+}
+
+/* ---------- Gallery card grid (mirrors portfolio-item behavior) ---------- */
+.gallery-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s var(--ease-signature);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.72) 100%);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-large {
+    width: 560px;
+    aspect-ratio: 560 / 700;
+}
+
+.gallery-small {
+    width: 260px;
+    aspect-ratio: 260 / 339;
+}
+
+@media (max-width: 768px) {
+    .gallery-large,
+    .gallery-small {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   VIDEO GALLERY UPGRADE — click-to-play thumbnails
+   ============================================================
+   Overrides the original .video-item rule, which combined a
+   fixed height:80vh with a padding-bottom aspect-ratio trick —
+   the two fought each other and made cards inconsistently tall.
+   This replaces it with a clean 16:9 card, and swaps four
+   simultaneously autoplaying/muted iframes for a single
+   click-to-play video at a time. */
+
+.video-item {
+    height: auto;
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+}
+
+.video-thumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-signature), filter 0.4s ease;
+}
+
+.video-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    transition: background 0.4s ease;
+}
+
+.video-thumb:hover img {
+    transform: scale(1.06);
+}
+
+.video-thumb:hover::after {
+    background: rgba(0,0,0,0.4);
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: none;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: transform 0.35s var(--ease-signature), background 0.3s ease;
+}
+
+.video-thumb:hover .video-play {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.video-play svg {
+    margin-left: 3px;
+}
+
+.video-title {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ---------- Gallery: uniform 3-col grid (used for the Kitchen section) ---------- */
+.gallery-grid-uniform {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 60px;
+}
+
+.gallery-medium {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid-uniform {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-grid-uniform {
+        grid-template-columns: 1fr;
+        padding: 10px 15px;
+    }
+}
+
+/* ---------- Safari repaint/tearing fix for full-bleed hero backgrounds ----------
+   Forces these onto their own GPU compositing layer so they don't tear when
+   scrolled past fixed-position elements (cursor, progress bar, preloader). */
+.hero-image,
+.services-hero,
+.portfoliobg,
+.about-hero,
+.contactimg,
+.gallery,
+.videogallery {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* ============================================================
+   ABOUT PAGE UPGRADE — curtain image reveal, team + value cards
+   ============================================================ */
+
+/* ---------- Curtain reveal for story/vision/mission images ---------- */
+.img-reveal-wrap {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    line-height: 0;
+    max-width: 100%;
+}
+
+.img-reveal-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary-color);
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: transform 0.9s var(--ease-signature);
+    z-index: 2;
+}
+
+.img-reveal-wrap.revealed::after {
+    transform: scaleX(0);
+}
+
+/* ---------- Team cards ---------- */
+.team-card {
+    position: relative;
+    padding: 30px 20px;
+    border-radius: 14px;
+    transition: transform 0.4s var(--ease-signature), box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+}
+
+.team-avatar {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+}
+
+.team-avatar span {
+    position: relative;
+    z-index: 2;
+}
+
+.team-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.4s ease, transform 0.4s var(--ease-signature);
+}
+
+.team-card:hover .team-avatar::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ---------- Value cards ---------- */
+.value-card {
+    position: relative;
+    padding: 24px 16px;
+    border-radius: 14px;
+    transition: transform 0.4s var(--ease-signature), background 0.4s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-6px);
+    background: rgba(0,0,0,0.03);
+}
+
+.value-num {
+    position: absolute;
+    top: 4px;
+    right: 14px;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.15;
+    line-height: 1;
+}
+
+.value-card img {
+    transition: transform 0.5s var(--ease-signature);
+}
+
+.value-card:hover img {
+    transform: scale(1.12) rotate(-6deg);
+}
+
+/* ---------- Enlarge the "our story" image on desktop ----------
+   It was only 290px wide in the original CSS, which read as an
+   afterthought next to a full paragraph of text. Scoped to
+   desktop only so it doesn't fight the existing mobile rules. */
+@media (min-width: 993px) {
+    .story .img-reveal-wrap img {
+        width: 374px;
+        height: 476px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+}
+
+/* ============================================================
+   THANK-YOU PAGE
+   ============================================================ */
+.thankyou-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 100px;
+    background: radial-gradient(circle at top center, rgba(140, 150, 120, 0.08) 0%, transparent 70%);
+}
+
+.thankyou-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.thankyou-card {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+.thankyou-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.thankyou-check {
+    width: 80px;
+    height: 80px;
+}
+
+.thankyou-check-circle {
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    stroke-dasharray: 151;
+    stroke-dashoffset: 151;
+    animation: thankyou-draw-circle 0.6s ease-out forwards;
+}
+
+.thankyou-check-mark {
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+    animation: thankyou-draw-mark 0.4s 0.5s ease-out forwards;
+}
+
+@keyframes thankyou-draw-circle {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes thankyou-draw-mark {
+    to { stroke-dashoffset: 0; }
+}
+
+.thankyou-tagline {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.thankyou-card h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--secondary-color);
+    letter-spacing: -0.5px;
+}
+
+.thankyou-card p {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--secondary-color);
+    opacity: 0.75;
+    max-width: 540px;
+    margin: 0 auto 30px;
+}
+
+/* Status Meta Details Box */
+.thankyou-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: #f9f9f8;
+    border: 1px dashed rgba(0, 0, 0, 0.12);
+    padding: 14px 28px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.meta-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.meta-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Process Roadmap Block */
+.thankyou-steps {
+    text-align: center;
+}
+
+.thankyou-steps h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--secondary-color);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.step-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 24px 20px;
+    border-radius: 14px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.06);
+}
+
+.step-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: rgba(140, 150, 120, 0.12);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 14px;
+}
+
+.step-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--secondary-color);
+}
+
+.step-card p {
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Responsive Breakdown */
+@media (max-width: 768px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .thankyou-card {
+        padding: 40px 20px;
+    }
+    .thankyou-meta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .meta-divider {
+        width: 40px;
+        height: 1px;
+    }
+}
+/* ---------- Inline form submit states (contact + review forms) ---------- */
+.form-status {
+    margin-top: 14px;
+    font-size: 14px;
+    display: none;
+}
+
+.form-status.show {
+    display: block;
+}
+
+.form-status.error {
+    color: #c0392b;
+}

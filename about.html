@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./premium-theme.css">
+    
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script
         src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
 
     <title>About</title>
-    <base href="/Living/">
+    <!-- <base href="/Living/"> -->
 </head>
 
 
@@ -65,18 +67,19 @@
             <div data-aos="fade-right">
                 <h1>our story</h1>
                 <h2>Where your space tells your story </h2>
-                <p>At Crestone livinfg, we believe your space should tell your story — beautifully, funtionally and
+                <p>At Crestone Living, we believe your space should tell your story — beautifully, functionally and
                     effortlessly.
-                    we specialize in interior design and project management, transforming everyday spaces into
-                    remarkable environment that reflect your personality and purpose. whether you’re creating . a cozy
-                    home vibrant or a luxurious commercial space, our team brings creativity precision, and
-                    proffesionalism to every detail. from concept to completion, we manage the entire journey — so you
-                    can enjoy the resuts without stress. Crestone Living is where style meets structure. lets bring your
-                    dream home space to life.</p>
+                    We specialize in interior design and project management, transforming everyday spaces into
+                    remarkable environments that reflect your personality and purpose. Whether you're creating a cozy,
+                    vibrant home or a luxurious commercial space, our team brings creativity, precision, and
+                    professionalism to every detail. From concept to completion, we manage the entire journey — so you
+                    can enjoy the results without stress. Crestone Living is where style meets structure. Let's bring
+                    your dream space to life.</p>
             </div>
             <div data-aos="fade-left">
-
-                <img src="./image/crestone living.png" alt="">
+                <div class="img-reveal-wrap">
+                    <img src="./image/crestone living.png" alt="">
+                </div>
             </div>
 
         </div>
@@ -96,7 +99,9 @@
                     sustainable choices, and a commitment to excellence in every project we undertake.</p>
             </div>
             <div data-aos="fade-left">
-                <img src="./image/vision .JPG" alt="">
+                <div class="img-reveal-wrap">
+                    <img src="./image/vision .JPG" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -106,19 +111,21 @@
     <section>
         <div class="mission" data-aos="fade-up">
             <div>
-                <img src="./image/MISSION 2.jpeg" alt="">
+                <div class="img-reveal-wrap">
+                    <img src="./image/MISSION 2.jpeg" alt="">
+                </div>
             </div>
             <div>
                 <h1>our mission</h1>
                 <p>We aim to create spaces that inspire and enhance everyday living. By blending creativity with
                     precision, we deliver interiors that are both beautiful and functional — always centered around our
-                    clients’ vision.
+                    clients' vision.
 
 
                 </p>
                 <br><br>
                 <p>
-                    Our mission goes beyond design; it’s about building trust, fostering collaboration, and ensuring
+                    Our mission goes beyond design; it's about building trust, fostering collaboration, and ensuring
                     every detail reflects the uniqueness of those we serve. With a focus on innovation, sustainability,
                     and exceptional project management, we transform ideas into realities that stand the test of time.
                 </p>
@@ -140,36 +147,35 @@
             <h3>The amazing team members behind Crestone Living</h3>
             <hr class="teamhr">
             <div class="team">
-                <div>
+                <div class="team-card">
 
-
-                    <span>jd</span>
+                    <div class="team-avatar"><span>jd</span></div>
                     <h2>john doe</h2>
                     <p class="styling" style="margin-top: 5px; margin-bottom: 7px;">creative director</p>
-                    <p class="psub">Bringing bold ideas and artistic direction, Johnson ensures every project tells a
+                    <p class="psub">Bringing bold ideas and artistic direction, ensuring every project tells a
                         unique story.
                     </p>
 
                 </div>
-                <div>
-                    <span>AN</span>
+                <div class="team-card">
+                    <div class="team-avatar"><span>AN</span></div>
                     <h2>anthony newten</h2>
                     <p class="styling" style="margin-top: 5px; margin-bottom: 7px;">project manager</p>
-                    <p class="psub">Focused on timelines, budgets, and flawless execution — Daniels keeps every detail
+                    <p class="psub">Focused on timelines, budgets, and flawless execution — keeping every detail
                         on track.
                     </p>
 
                 </div>
-                <div>
-                    <span>EE</span>
+                <div class="team-card">
+                    <div class="team-avatar"><span>EE</span></div>
                     <h2>emmanuel e</h2>
                     <p class="styling" style="margin-top: 5px; margin-bottom: 7px;">lead interior design</p>
-                    <p class="psub">Combining style and function, Rivera transforms concepts into inspiring spaces.
+                    <p class="psub">Combining style and function, transforming concepts into inspiring spaces.
                     </p>
 
                 </div>
-                <div>
-                    <span>CB</span>
+                <div class="team-card">
+                    <div class="team-avatar"><span>CB</span></div>
                     <h2>Charles bone</h2>
                     <p class="styling" style="margin-top: 5px; margin-bottom: 7px;">senior designer</p>
                     <p class="psub">specializes in modern and contemporary spaces, bringing fresh perspectives to every
@@ -192,18 +198,20 @@
             <h4>our values</h4>
             <h2>The value that drives everything we do from initial consultation to final walkthrough.</h2>
             <div class="values">
-                <div>
-
+                <div class="value-card">
+                    <span class="value-num">01</span>
                     <img src="./image/quality.png" alt="">
                     <h1>Quality</h1>
                     <p>Sourcing <b>premium</b> materials and working with skilled hands for flawless results.</p>
                 </div>
-                <div>
+                <div class="value-card">
+                    <span class="value-num">02</span>
                     <img src="./image/trust.png" alt="">
                     <h1>Trust</h1>
                     <p>Building lasting <b>relationships</b> through honesty, transparency, and reliability.</p>
                 </div>
-                <div>
+                <div class="value-card">
+                    <span class="value-num">03</span>
                     <img src="./image/diversity.png" alt="">
                     <h1>Diversity</h1>
                     <p>Embracing different perspectives and inclusivity to <b>enrich</b> every project.</p>
@@ -211,17 +219,20 @@
             </div>
 
             <div class="values">
-                <div>
+                <div class="value-card">
+                    <span class="value-num">04</span>
                     <img src="./image/creativity.png" alt="">
                     <h1>Creativity</h1>
                     <p>Turning <b>bold</b> ideas into inspiring designs, shaping <b>imagination</b> into reality.</p>
                 </div>
-                <div>
+                <div class="value-card">
+                    <span class="value-num">05</span>
                     <img src="./image/innovation.png" alt="">
                     <h1>Innovation</h1>
                     <p>Exploring new trends and <b>technologies</b> to create <b>modern</b>, functional spaces.</p>
                 </div>
-                <div>
+                <div class="value-card">
+                    <span class="value-num">06</span>
                     <img src="./image/achievement.png" alt="">
                     <h1>Achievement</h1>
                     <p>Exceeding expectations every time with <b>precision</b>, <b>quality</b>, and lasting impact.</p>
@@ -257,7 +268,7 @@
 
                     <h4 class="abheading">testimonial</h4>
                     <h2>What Our clients say</h2>
-                    <p class="tp">Every project tells a story — here’s what our clients say about working with us.</p>
+                    <p class="tp">Every project tells a story — here's what our clients say about working with us.</p>
                
 
                     <div style="margin-top: 50px;" class="test">
@@ -430,8 +441,7 @@
         
         <div class="footer-col footer-services-sub">
             <ul class="footer-links">
-           <li>
-           <li><a href="">2D/3D layout</a></li>
+                <li><a href="">2D/3D layout</a></li>
                 <li><a href="">Art & accessories</a></li>
                 <li><a href="">Furniture selection</a></li>
                 <li><a href="">Outdoor & landscape design</a></li>
@@ -482,6 +492,7 @@
                 </div>
                 
                 <button type="submit">Submit Review</button>
+                <p class="form-status" id="reviewFormStatus"></p>
             </form>
         </div>
     </div>

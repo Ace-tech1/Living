@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./image/CRESTONE-LOGO-ICON-PNG-WHITE.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./premium-theme.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script
         src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0/dist/smooth-scroll.polyfills.min.js"></script>
 
     <title>Contact</title>
-    <base href="/Living/">
+    <!-- <base href="/Living/"> -->
 </head>
 
 <body>
@@ -86,7 +87,7 @@
                 <h2>Send us a message</h2>
                 <p class="subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
 
-                <form action="https://api.web3forms.com/submit" method="POST"> 
+                <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
 
                     <input type="hidden" name="access_key" value="d36401e5-388f-403e-be76-4897867fd837">
 
@@ -144,6 +145,7 @@
                     </div>
 
                     <button type="submit" class="send-message-btn">Send Message</button>
+                    <p class="form-status" id="contactFormStatus"></p>
                 </form>
             </div>
 
@@ -380,6 +382,7 @@
                 </div>
                 
                 <button type="submit">Submit Review</button>
+                <p class="form-status" id="reviewFormStatus"></p>
             </form>
         </div>
     </div>
